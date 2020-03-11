@@ -1,0 +1,74 @@
+﻿<Page
+    x:Class="MusicLibrary.LocalMusic"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MusicLibrary"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:MusicLibrary.Model"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1101" />
+        </Grid.RowDefinitions>
+        <RelativePanel Margin="0,0,12,0">
+
+            <TextBlock x:Name="pageTitle"  Margin="0,0,20,0" FontSize="15" RelativePanel.AlignLeftWithPanel="True"  />
+            <HyperlinkButton Content="Go back to Main page" Margin="0,0,20,0" FontSize="20" Name="Hyper"  Click="HyperlinkButton_Click1" RelativePanel.RightOf="pageTitle"/>
+            <TextBlock Name="greeting" FontSize="20" Margin="0,0,20,0" RelativePanel.RightOf="Hyper" Width="547" Height="80"/>
+
+        </RelativePanel>
+
+        <Grid Margin="0,95,0,5" >
+
+
+            <TextBlock Name="CategoryTextBlock1" Text="  Play your local music" FontSize="24" Height="855" VerticalAlignment="Top" Margin="0,0,6,0" RenderTransformOrigin="0.476,0.609"   />
+            <StackPanel   >
+                <StackPanel Height="auto" Width="auto">
+                    <Image x:Name="Image1" Source="ms-appx:///Assets/images.jfif" Height="168" Width="181" Stretch="Fill"  />
+                    <Button Content="Click here to Chenge image" Background="PowderBlue" VerticalContentAlignment="Bottom"  Click="image_Click" Height="34" Width="178" HorizontalAlignment="Center" />
+
+                    <!--Display What is playing now with this ?-->
+                    <!--
+                    <TextBlock  Name="MyFadingText" Margin="20" Width="550" Height="35" FontSize="20" FontWeight="Bold" Foreground="#FF95DDE4" >
+ 
+
+                       -->
+                    <!--Animates the text block's opacity.-->
+                    <!-- 
+                     <TextBlock.Triggers>
+                     <EventTrigger >
+                      <BeginStoryboard>
+                                    <Storyboard>
+                                    <DoubleAnimation
+                                    Storyboard.TargetName="MyFadingText" 
+                                    Storyboard.TargetProperty="Opacity"
+                                    From="0.0" To="1.0" Duration="0:0:5" 
+                                    AutoReverse="True" RepeatBehavior="1x" />
+                                    </Storyboard>
+                      </BeginStoryboard>
+                         </EventTrigger>
+                         </TextBlock.Triggers>
+                         </TextBlock>-->
+
+
+
+                </StackPanel>
+                <!--TODO// Add media playback with local music-->
+                <!--MediaPlayer starts here-->
+                <MediaPlayerElement x:Name="MyMediaElement1" Margin="100,0,100,0" AreTransportControlsEnabled="True" Height="Auto" Width="Auto" Stretch="Fill"  Visibility="Visible">
+                    <MediaPlayerElement.TransportControls>
+                        <MediaTransportControls  IsStopEnabled="True"  />
+                    </MediaPlayerElement.TransportControls>
+                </MediaPlayerElement>
+                <!--Med1iaPlayer ends here-->
+
+                <ListView x:Name="AllLocalSongsListView" Height="509" Width="1100"   ItemClick="AllLocalSongsListView_ItemClick" IsItemClickEnabled="True" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+            </StackPanel>
+        </Grid>
+
+    </Grid>
+
+</Page>
